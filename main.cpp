@@ -1,14 +1,18 @@
 #include <iostream>
 #include <vector>
 #include <string>
+#include <stdexcept>
 #include "MathFunctionsVoid.hpp"
 #include "RandomNumbers.hpp"
 #include "MathOperators.hpp"
+#include "WordProblems.hpp"
+#include "FruitNames.hpp"
 
 using std::cout;
 using std::cin;													
 using std::endl;
 using std::vector;
+
 
 
 static void isEqual(std::string a) {
@@ -41,7 +45,7 @@ int main() {
 	MathFunctionVoid M;
 	Numbers Nums;
 	Operators op;
-	
+
 	int answer;
 	listCommands();
 
@@ -60,9 +64,6 @@ int main() {
 
 
 	if (command == "Math") {
-
-
-
 
 
 		long Number_1 = Nums.randomNumbers(num1, num2);
@@ -95,6 +96,23 @@ int main() {
 
 		}
 
+	}
+
+	if (command == "Word") {
+
+		try {
+
+			cout << "Name 1 Picked: " <<  NamesRandOne() << endl;
+			cout << "Name 2 Picked: " <<  NamesRandTwo() << endl;
+
+			cout << "Fruit Name 1: " << NamesFruitRandOne() << endl;
+			cout << "Fruit Name 2: " << NamesFruitRandTwo() << endl;
+
+
+		}
+		catch (const std::exception& e) {
+			cout << "Message: " << e.what() << endl;
+		}
 	}
 
 	if (command == "Home") {
